@@ -349,7 +349,8 @@ export default function YardView3D({
 
       const x = col * cellW + cellW / 2;
       const y = (c.height ?? 0) * h + h / 2;
-      const z = row * cellD + cellD / 2;
+      // Espelha Z para que a letra A fique na frente (topo do 2D) e cresça para o fundo
+      const z = (numRows - 1 - row) * cellD + cellD / 2;
       mesh.position.set(x, y, z);
       mesh.userData = { containerId: c.id, status: c.status, type: c.type };
 
